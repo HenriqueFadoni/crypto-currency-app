@@ -3,26 +3,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-currencyHeader = props => (
-    <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{props.item.name} </Text>
-        <Text style={styles.subTitleText}>( {props.item.symbol} )</Text>
-    </View>
-);
+currencyScreen = props => {
+    return (
+        <View style={styles.marketCapConteiner}>
+            <Text style={styles.marketCapText}>Market Cap: {props.item.quote.USD.market_cap.toFixed(2)}</Text>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
-    titleContainer: {
-        height: 100,
-        flexDirection: "row",
+    marketCapConteiner: {
         justifyContent: "center",
         alignItems: "center",
+        padding: 10,
         backgroundColor: 'rgba(98, 124, 244, 1)'
     },
-    titleText: {
-        fontSize: 40,
-        color: 'white'
-    },
-    subTitleText: {
+    marketCapText: {
+        fontSize: 17,
         color: 'white'
     }
 });
@@ -35,9 +32,12 @@ const mapStateToProps = state => {
 
 currencyHeader.propTypes = {
     item: PropTypes.shape({
-        name: PropTypes.string,
-        symbol: PropTypes.string
+        quote: PropTypes.shape({
+            USD: PropTypes.shape({
+                market_cap: PropTypes.number
+            })
+        })
     }).isRequired
 }
 
-export default connect(mapStateToProps)(currencyHeader);
+export default connect(mapStateToProps)(currencyScreen);

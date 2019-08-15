@@ -11,7 +11,7 @@ currencyScreen = props => {
     <View style={styles.container}>
       <Text style={styles.title}>WELCOME TO CRYPTO-WATCH</Text>
       <Button
-        title="Search Currency by Market-Cap"
+        title="Search Currency"
         style={styles.button}
         onPress={() => {
           props.navigation.navigate({ routeName: 'currencyList' });

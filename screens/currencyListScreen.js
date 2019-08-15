@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, FlatList, Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as actions from '../store/actions/index';
 import Item from '../components/Item';
@@ -95,6 +96,12 @@ const mapDispatchToProps = dispatch => {
         onFetchCurrencies: () => dispatch(actions.fetchData()),
         onSelectCurrency: id => dispatch(actions.selectedItem(id))
     }
+}
+
+CurrencyListScreen.propTypes = {
+    list: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onFetchCurrencies: PropTypes.func.isRequired,
+    onSelectCurrency: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrencyListScreen);

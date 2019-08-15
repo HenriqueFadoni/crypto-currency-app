@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 currencyChanges = props => {
     let isPositive1h = false;
@@ -49,12 +50,11 @@ currencyChanges = props => {
 
 const styles = StyleSheet.create({
     changesContainer: {
-        backgroundColor: '#50D7E1',
-        marginVertical: 20,
+        backgroundColor: 'white',
         padding: 10
     },
     changesTitle: {
-        color: 'white',
+        color: 'rgba(98, 124, 244, 1)',
         marginBottom: 10,
         fontSize: 20
     },
@@ -72,6 +72,18 @@ const mapStateToProps = state => {
     return {
         item: state.currency.selectedCur
     }
+}
+
+currencyHeader.propTypes = {
+    item: PropTypes.shape({
+        quote: PropTypes.shape({
+            USD: PropTypes.shape({
+                percent_change_1h: PropTypes.number,
+                percent_change_24h: PropTypes.number,
+                percent_change_7d: PropTypes.number
+            })
+        })
+    }).isRequired
 }
 
 export default connect(mapStateToProps)(currencyChanges);
