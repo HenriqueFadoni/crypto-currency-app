@@ -1,10 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+    TouchableOpacity,
+    StyleSheet,
+    Text,
+    View
+} from 'react-native';
 
 const item = props => (
-    <View style={styles.item}>
-        <Text style={styles.itemFont}>{props.item.name}</Text>
+    <View>
+        <TouchableOpacity onPress={() => props.selectCurrency(props.item.id)}>
+            <View style={styles.item}>
+                <Text style={styles.itemFont}>{props.item.name}</Text>
+            </View>
+        </TouchableOpacity>
     </View>
+
 );
 
 const styles = StyleSheet.create({
