@@ -1,3 +1,4 @@
 export {
-    fetchData
+    fetchData,
+    selectedItem
 } from './currency';

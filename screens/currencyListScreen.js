@@ -7,6 +7,7 @@ import Item from '../components/Item';
 
 class CurrencyListScreen extends Component {
     state = {
+        searchName: '',
         searchList: [],
         isSeaching: false
     }
@@ -16,19 +17,22 @@ class CurrencyListScreen extends Component {
     }
 
     searchCurrency = curName => {
-        if (curName.trim() !== '') {
+        const name = curName.trim();
+        if (name !== '') {
             const newList = this.props.list.map(currency => {
-                if (currency.name.includes(curName)) {
+                if (currency.name.includes(name)) {
                     return currency
                 }
             }).filter(c => c !== undefined);
 
             this.setState({
+                searchName: name,
                 searchList: newList,
                 isSeaching: true
             });
         } else {
             this.setState({
+                searchName: '',
                 searchList: [],
                 isSeaching: false
             });
@@ -36,6 +40,12 @@ class CurrencyListScreen extends Component {
     }
 
     selectCurrency = currencyId => {
+        this.props.onSelectCurrency(currencyId);
+        this.setState({
+            searchName: '',
+            searchList: [],
+            isSeaching: false
+        });
         this.props.navigation.navigate({ routeName: 'currencyItem' });
     }
 
@@ -45,6 +55,7 @@ class CurrencyListScreen extends Component {
                 <TextInput
                     style={styles.searchInput}
                     placeholder="Search Currency by Name"
+                    value={this.state.searchName}
                     onChangeText={this.searchCurrency}
                 />
                 <FlatList
@@ -81,7 +92,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchCurrencies: () => dispatch(actions.fetchData())
+        onFetchCurrencies: () => dispatch(actions.fetchData()),
+        onSelectCurrency: id => dispatch(actions.selectedItem(id))
     }
 }
 

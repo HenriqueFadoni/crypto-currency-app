@@ -1,6 +1,10 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
+///////////////////////
+// GET DATA FROM API //
+///////////////////////
+
 // In case Fetch is Successful
 const fetchDataSuccess = data => {
     return {
@@ -40,3 +44,14 @@ export const fetchData = () => {
         }
     };
 };
+
+///////////////////////
+// GET SELECTED ITEM //
+///////////////////////
+
+export const selectedItem = itemId => {
+    return {
+        type: actionTypes.GET_SELECTED_ITEM,
+        id: itemId
+    }
+}
