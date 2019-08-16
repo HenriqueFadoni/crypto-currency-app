@@ -55,16 +55,19 @@ class CurrencyListScreen extends PureComponent {
     }
 
     render() {
-        let render = (
-            <View style={styles.loadingContainer}>
-                <Text style={styles.loadingText}>Loading ...</Text>
-            </View>
-        );
-
-        if (!this.props.loading) {
-            render = (
+        return (
+            < View style={styles.itemContainer} >
+                <TextInput
+                    style={styles.searchInput}
+                    placeholder="Search Currency by Name"
+                    value={this.state.searchName}
+                    onChangeText={this.searchCurrency}
+                />
                 <FlatList
                     keyExtractor={(item) => item.id.toString()}
+                    onRefresh={async () => await this.props.onFetchCurrencies()}
+                    refreshing={this.props.loading ? true : false}
+                    contentContainerStyle={{ paddingBottom: 100}}
                     data={
                         this.state.isSeaching ?
                             this.state.searchList :
@@ -74,19 +77,6 @@ class CurrencyListScreen extends PureComponent {
                         <Item selectCurrency={this.selectCurrency} item={itemData.item} />
                     )}
                 />
-
-            );
-        }
-
-        return (
-            < View style={styles.itemContainer} >
-                <TextInput
-                    style={styles.searchInput}
-                    placeholder="Search Currency by Name"
-                    value={this.state.searchName}
-                    onChangeText={this.searchCurrency}
-                />
-                {render}
             </View >
         );
     }
