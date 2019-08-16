@@ -129,6 +129,7 @@ const mapDispatchToProps = dispatch => {
 
 CurrencyListScreen.propTypes = {
     list: PropTypes.arrayOf(PropTypes.object).isRequired,
+    loading: PropTypes.bool.isRequired,
     onFetchCurrencies: PropTypes.func.isRequired,
     onSelectCurrency: PropTypes.func.isRequired
 }

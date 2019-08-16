@@ -6,10 +6,11 @@ import {
   Animated,
   Platform
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import ButtonDefault from '../components/Button';
 
-class currencyScreen extends Component {
+class WelcomeScreen extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -74,4 +75,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default currencyScreen;
+export default WelcomeScreen;
