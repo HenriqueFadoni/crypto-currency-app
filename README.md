@@ -3,7 +3,7 @@
 This is a basic Application that uses advanced concepts of React Native, Redux, Expo, and Restful Api to 
 display the current market data for each cryptocurrency registered.
 
-# Tech Used
+## Tech Used
 
 - React Native
 - Redux / Redux Thunk
