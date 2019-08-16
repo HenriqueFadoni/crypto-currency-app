@@ -5,6 +5,13 @@ import axios from 'axios';
 // GET DATA FROM API //
 ///////////////////////
 
+// Handling Loading
+const fetchDataStart = () => {
+    return {
+        type: actionTypes.FETCH_CURRENCY_DATA_START
+    };
+};
+
 // In case Fetch is Successful
 const fetchDataSuccess = data => {
     return {
@@ -24,6 +31,7 @@ const fetchDataFail = error => {
 //Fetching Data From API
 export const fetchData = () => {
     return async dispatch => {
+        dispatch(fetchDataStart());
         try {
             const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
             const response = await axios.get(url, {
@@ -38,9 +46,9 @@ export const fetchData = () => {
                 json: true,
                 gzip: true
             });
-            dispatch(fetchDataSuccess(response.data.data));
+            return dispatch(fetchDataSuccess(response.data.data));
         } catch (error) {
-            dispatch(fetchDataFail(error));
+            return dispatch(fetchDataFail(error));
         }
     };
 };

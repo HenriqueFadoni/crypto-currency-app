@@ -1,24 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
-  Button
+  Animated,
+  Platform
 } from 'react-native';
 
-currencyScreen = props => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>WELCOME TO CRYPTO-WATCH</Text>
-      <Button
-        title="Search Currency"
-        style={styles.button}
-        onPress={() => {
-          props.navigation.navigate({ routeName: 'currencyList' });
-        }}
-      />
-    </View>
-  );
+import ButtonDefault from '../components/Button';
+
+class currencyScreen extends Component {
+  static navigationOptions = {
+    header: null,
+  }
+
+  state = {
+    fadeAnim: new Animated.Value(0),
+  }
+
+  componentDidMount() {
+    Animated.timing(
+      this.state.fadeAnim,
+      {
+        toValue: 1,
+        duration: 1500,
+      }
+    ).start();
+  }
+
+  render() {
+    let { fadeAnim } = this.state;
+    const isAndroid = Platform.OS === 'android' ? true : false;
+    let renderBtn = <ButtonDefault navProps={this.props} />
+
+    if (isAndroid) {
+      renderBtn = (
+        <View style={styles.btnContainer}>
+          <ButtonDefault color='blue' navProps={this.props} />
+        </View>
+      );
+    }
+    return (
+      <View style={styles.container}>
+        <Animated.View style={{ opacity: fadeAnim }}>
+          <Text style={styles.subTitle}>WELCOME TO</Text>
+          <Text style={styles.title}>CRYPTO-WATCH</Text>
+        </Animated.View>
+        {renderBtn}
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -31,6 +62,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 25,
     marginBottom: 100
+  },
+  subTitle: {
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  btnContainer: {
+    width: 100,
+    justifyContent: "center",
+    alignSelf: "center"
   }
 });
 

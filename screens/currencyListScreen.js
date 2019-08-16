@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { StyleSheet, FlatList, Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,7 +6,11 @@ import PropTypes from 'prop-types';
 import * as actions from '../store/actions/index';
 import Item from '../components/Item';
 
-class CurrencyListScreen extends Component {
+class CurrencyListScreen extends PureComponent {
+    static navigationOptions = {
+        header: null
+    }
+
     state = {
         searchName: '',
         searchList: [],
@@ -51,14 +55,14 @@ class CurrencyListScreen extends Component {
     }
 
     render() {
-        return (
-            <View style={styles.itemContainer}>
-                <TextInput
-                    style={styles.searchInput}
-                    placeholder="Search Currency by Name"
-                    value={this.state.searchName}
-                    onChangeText={this.searchCurrency}
-                />
+        let render = (
+            <View style={styles.loadingContainer}>
+                <Text style={styles.loadingText}>Loading ...</Text>
+            </View>
+        );
+
+        if (!this.props.loading) {
+            render = (
                 <FlatList
                     keyExtractor={(item) => item.id.toString()}
                     data={
@@ -70,24 +74,49 @@ class CurrencyListScreen extends Component {
                         <Item selectCurrency={this.selectCurrency} item={itemData.item} />
                     )}
                 />
-            </View>
+
+            );
+        }
+
+        return (
+            < View style={styles.itemContainer} >
+                <TextInput
+                    style={styles.searchInput}
+                    placeholder="Search Currency by Name"
+                    value={this.state.searchName}
+                    onChangeText={this.searchCurrency}
+                />
+                {render}
+            </View >
         );
     }
 }
 
 const styles = StyleSheet.create({
     itemContainer: {
-        marginVertical: 20
+        marginVertical: 20,
+        paddingVertical: 10
     },
     searchInput: {
-        marginVertical: 25,
+        marginTop: 50,
+        marginBottom: 25,
         alignSelf: 'center'
+    },
+    loadingContainer: {
+        height: '100%',
+        marginTop: 20,
+        alignContent: "center",
+    },
+    loadingText: {
+        textAlign: "center",
+        fontSize: 20
     }
 });
 
 const mapStateToProps = state => {
     return {
-        list: state.currency.currencyList
+        list: state.currency.currencyList,
+        loading: state.currency.loading
     };
 };
 
