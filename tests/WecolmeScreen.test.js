@@ -16,11 +16,6 @@ describe('WelcomeScreen', () => {
         expect(WScreen.children.length).toBe(2);
     });
 
-    it('Renders a button', () => {
-        const wrapper = shallow(<WelcomeScreen />)
-        expect(wrapper).toContain();
-    });
-
     //Snapshot Testing
     it('Renders a button', () => {
         const tree = renderer.create(<WelcomeScreen />).toJSON();
