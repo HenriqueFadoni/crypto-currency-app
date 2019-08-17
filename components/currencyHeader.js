@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-currencyHeader = props => (
+const CurrencyHeader = props => (
     <View style={styles.titleContainer}>
         <Text style={styles.titleText}>{props.item.name} </Text>
         <Text style={styles.subTitleText}>( {props.item.symbol} )</Text>
@@ -40,4 +40,4 @@ currencyHeader.propTypes = {
     }).isRequired
 }
 
-export default connect(mapStateToProps)(currencyHeader);
+export default connect(mapStateToProps)(CurrencyHeader);

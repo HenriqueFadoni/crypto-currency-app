@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Moment from 'moment';
 import PropTypes from 'prop-types';
 
-currencyAdditionalInfo = props => {
+const CurrencyAdditionalInfo = props => {
   Moment.locale('en');
   const dateCreated = props.item.date_added;
   const dateUpdated = props.item.quote.USD.last_updated;
@@ -58,4 +58,4 @@ currencyHeader.propTypes = {
   }).isRequired
 }
 
-export default connect(mapStateToProps)(currencyAdditionalInfo);
+export default connect(mapStateToProps)(CurrencyAdditionalInfo);

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-currencyChanges = props => {
+const CurrencyChanges = props => {
     let isPositive1h = false;
     let isPositive24h = false;
     let isPositive7d = false;
@@ -86,4 +86,4 @@ currencyHeader.propTypes = {
     }).isRequired
 }
 
-export default connect(mapStateToProps)(currencyChanges);
+export default connect(mapStateToProps)(CurrencyChanges);

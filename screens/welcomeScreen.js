@@ -32,11 +32,11 @@ class WelcomeScreen extends Component {
   render() {
     let { fadeAnim } = this.state;
     const isAndroid = Platform.OS === 'android' ? true : false;
-    let renderBtn = <ButtonDefault testID='Btn-welcome' navProps={this.props} />
+    let renderBtn = <ButtonDefault navProps={this.props} />
 
     if (isAndroid) {
       renderBtn = (
-        <View testID='Btn-welcome' style={styles.btnContainer}>
+        <View style={styles.btnContainer}>
           <ButtonDefault color='blue' navProps={this.props} />
         </View>
       );

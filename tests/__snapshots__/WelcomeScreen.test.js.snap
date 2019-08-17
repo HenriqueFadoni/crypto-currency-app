@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WelcomeScreen Renders a button 1`] = `
+exports[`WelcomeScreen Checks if everything is being rendered accordingly 1`] = `
 <View
   style={
     Object {

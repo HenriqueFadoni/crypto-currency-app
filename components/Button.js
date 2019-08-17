@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
 
-buttonDefault = props => (
+const ButtonDefault = props => (
     <Button
         title="Search Currency"
         onPress={() => {
@@ -9,4 +9,4 @@ buttonDefault = props => (
         }}
     />
 );
-export default buttonDefault;
+export default ButtonDefault;

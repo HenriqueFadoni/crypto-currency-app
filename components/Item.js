@@ -6,7 +6,7 @@ import {
     View
 } from 'react-native';
 
-const item = props => (
+const Item = props => (
     <View>
         <TouchableOpacity onPress={() => props.selectCurrency(props.item.id)}>
             <View style={styles.item}>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default item;
+export default Item;

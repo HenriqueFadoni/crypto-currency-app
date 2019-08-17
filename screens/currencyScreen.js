@@ -7,7 +7,7 @@ import CurrencyFinance from '../components/CurrencyFinance';
 import CurrencyMarketCap from '../components/CurrencyMarketCap';
 import CurrencyAdditionalInfo from '../components/CurrencyAdditionalInfo';
 
-currencyScreen = () => (
+const CurrencyScreen = () => (
   <View>
     <CurrencyHeader />
     <CurrencyFinance />
@@ -17,4 +17,4 @@ currencyScreen = () => (
   </View>
 );
 
-export default currencyScreen;
+export default CurrencyScreen;
