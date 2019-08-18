@@ -47,7 +47,7 @@ const mapStateToProps = state => {
   };
 };
 
-currencyHeader.propTypes = {
+CurrencyAdditionalInfo.propTypes = {
   item: PropTypes.shape({
     date_added: PropTypes.string,
     quote: PropTypes.shape({

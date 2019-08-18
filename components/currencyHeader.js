@@ -33,7 +33,7 @@ const mapStateToProps = state => {
     };
 };
 
-currencyHeader.propTypes = {
+CurrencyHeader.propTypes = {
     item: PropTypes.shape({
         name: PropTypes.string,
         symbol: PropTypes.string

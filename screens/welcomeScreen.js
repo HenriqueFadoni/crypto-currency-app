@@ -6,7 +6,6 @@ import {
   Animated,
   Platform
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import ButtonDefault from '../components/Button';
 

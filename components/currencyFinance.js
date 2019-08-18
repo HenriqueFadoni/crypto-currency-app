@@ -35,7 +35,7 @@ const mapStateToProps = state => {
 }
 ;
 
-currencyHeader.propTypes = {
+CurrencyFinance.propTypes = {
   item: PropTypes.shape({
     quote: PropTypes.shape({
       USD: PropTypes.shape({
