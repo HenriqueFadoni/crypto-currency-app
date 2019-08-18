@@ -5,7 +5,7 @@ const ButtonDefault = props => (
     <Button
         title="Search Currency"
         onPress={() => {
-            props.navProps.navigation.navigate({ routeName: 'currencyList' });
+            props.navigation.navigate({ routeName: 'currencyList' });
         }}
     />
 );

@@ -7,7 +7,8 @@ import {
   Platform
 } from 'react-native';
 
-import ButtonDefault from '../components/Button';
+import WelcomeAndroid from '../components/WelcomeScreen/WelcomeAndroid';
+import WelcomeIos from '../components/WelcomeScreen/WelcomeIos';
 
 class WelcomeScreen extends Component {
   static navigationOptions = {
@@ -31,22 +32,28 @@ class WelcomeScreen extends Component {
   render() {
     let { fadeAnim } = this.state;
     const isAndroid = Platform.OS === 'android' ? true : false;
-    let renderBtn = <ButtonDefault navProps={this.props} />
+    let renderScreen = (
+      <WelcomeIos
+        title="WELCOME TO"
+        subTitle="CRYPTO-WATCH"
+        animation={{ opacity: fadeAnim }}
+        navigation={this.props.navigation}
+      />
+    );
 
     if (isAndroid) {
-      renderBtn = (
-        <View style={styles.btnContainer}>
-          <ButtonDefault color='blue' navProps={this.props} />
-        </View>
+      renderScreen = (
+        <WelcomeAndroid
+          title="WELCOME TO"
+          subTitle="CRYPTO-WATCH"
+          animation={{ opacity: fadeAnim }}
+          navigation={this.props.navigation}
+        />
       );
     }
     return (
       <View style={styles.container}>
-        <Animated.View style={{ opacity: fadeAnim }}>
-          <Text style={styles.subTitle}>WELCOME TO</Text>
-          <Text style={styles.title}>CRYPTO-WATCH</Text>
-        </Animated.View>
-        {renderBtn}
+        {renderScreen}
       </View>
     );
   }
@@ -57,20 +64,6 @@ const styles = StyleSheet.create({
     height: '100%',
     alignContent: 'center',
     justifyContent: 'center'
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginBottom: 100
-  },
-  subTitle: {
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  btnContainer: {
-    width: 100,
-    justifyContent: "center",
-    alignSelf: "center"
   }
 });
 

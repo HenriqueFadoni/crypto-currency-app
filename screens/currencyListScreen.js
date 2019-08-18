@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as actions from '../store/actions/index';
-import Item from '../components/Item';
+import Item from '../components/CurrencyList/Item';
 
 class CurrencyListScreen extends PureComponent {
     static navigationOptions = {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import CurrencyHeader from '../components/CurrencyHeader';
-import CurrencyChanges from '../components/CurrencyChanges';
-import CurrencyFinance from '../components/CurrencyFinance';
-import CurrencyMarketCap from '../components/CurrencyMarketCap';
-import CurrencyAdditionalInfo from '../components/CurrencyAdditionalInfo';
+import CurrencyHeader from '../components/CurrencyScreen/CurrencyHeader';
+import CurrencyChanges from '../components/CurrencyScreen/CurrencyChanges';
+import CurrencyFinance from '../components/CurrencyScreen/CurrencyFinance';
+import CurrencyMarketCap from '../components/CurrencyScreen/CurrencyMarketCap';
+import CurrencyAdditionalInfo from '../components/CurrencyScreen/CurrencyAdditionalInfo';
 
 const CurrencyScreen = () => (
   <View>
