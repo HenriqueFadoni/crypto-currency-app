@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     StyleSheet,
     View,
@@ -6,6 +6,7 @@ import {
     Animated,
     StatusBar
 } from 'react-native';
+import PropType from 'prop-types';
 
 import ButtonRouteIOS from './ButtonRouteIOS';
 
@@ -58,5 +59,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 });
+
+WelcomeIos.propType = {
+    animation: PropType.objectOf(PropType.string).isRequired,
+    title: PropType.string.isRequired,
+    subTitle: PropType.string.isRequired,
+    navigation: PropType.shape({
+        navigate: PropType.func
+    }).isRequired,
+}
 
 export default WelcomeIos;

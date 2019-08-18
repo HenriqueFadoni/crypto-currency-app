@@ -4,6 +4,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+import PropType from 'prop-types';
 
 const ButtonRouteIOS = props => (
     <TouchableOpacity
@@ -31,5 +32,15 @@ const styles = StyleSheet.create({
         fontSize: 18
     }
 });
+
+ButtonRouteIOS.propTypes = {
+    title: PropType.string.isRequired,
+    bgColor: PropType.objectOf(PropType.string).isRequired,
+    textColor: PropType.objectOf(PropType.string).isRequired,
+    navigation: PropType.shape({
+        navigate: PropType.func
+    }).isRequired,
+    route: PropType.string.isRequired
+}
 
 export default ButtonRouteIOS;

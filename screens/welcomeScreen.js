@@ -51,6 +51,7 @@ class WelcomeScreen extends Component {
         />
       );
     }
+    
     return renderScreen
   }
 }
