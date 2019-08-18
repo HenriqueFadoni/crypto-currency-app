@@ -1,8 +1,8 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import welcomeScreen from '../screens/welcomeScreen';
-import currencyListScreen from '../screens/currencyListScreen';
-import currencyScreen from '../screens/currencyScreen';
+import welcomeScreen from '../screens/WelcomeScreen';
+import currencyListScreen from '../screens/CurrencyListScreen';
+import currencyScreen from '../screens/CurrencyScreen';
 
 const CryptoCurrencyNav = createStackNavigator(
     {
