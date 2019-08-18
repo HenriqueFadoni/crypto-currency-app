@@ -7,7 +7,7 @@ import {
   Platform
 } from 'react-native';
 
-import WelcomeAndroid from '../components/WelcomeScreen/WelcomeAndroid';
+import WelcomeAndroid from '../components/WelcomeScreen/WelcomeAndroid/WelcomeAndroid';
 import WelcomeiOS from '../components/WelcomeScreen/WelcomeiOS/WelcomeiOS';
 
 class WelcomeScreen extends Component {

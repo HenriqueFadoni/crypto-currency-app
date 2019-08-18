@@ -10,7 +10,7 @@ import PropType from 'prop-types';
 
 import ButtonRouteIOS from './ButtonRouteIOS';
 
-const WelcomeIos = props => (
+const WelcomeiOS = props => (
     <View style={styles.container}>
         <StatusBar
             backgroundColor="blue"
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     }
 });
 
-WelcomeIos.propType = {
+WelcomeiOS.propType = {
     animation: PropType.objectOf(PropType.string).isRequired,
     title: PropType.string.isRequired,
     subTitle: PropType.string.isRequired,
@@ -69,4 +69,4 @@ WelcomeIos.propType = {
     }).isRequired,
 }
 
-export default WelcomeIos;
+export default WelcomeiOS;
