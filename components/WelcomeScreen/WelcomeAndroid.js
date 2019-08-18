@@ -9,7 +9,7 @@ import {
 import ButtonDefault from './Button';
 
 const WelcomeAndroid = props => (
-    <>
+    <View style={styles.container}>
         <Animated.View style={[styles.titlesContainerAndroid, styles.animation]}>
             <Text style={styles.subTitle}>{props.title}</Text>
             <Text style={styles.title}>{props.subTitle}</Text>
@@ -17,10 +17,15 @@ const WelcomeAndroid = props => (
         <View style={styles.btnContainer}>
             <ButtonDefault color='blue' navigation={props.navigation} />
         </View>
-    </>
+    </View>
 );
 
 const styles = StyleSheet.create({
+    container: {
+        height: '100%',
+        alignContent: 'center',
+        justifyContent: 'center'
+    },
     titlesContainerAndroid: {
         borderRadius: 1000,
         height: 250,

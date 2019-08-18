@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import WelcomeAndroid from '../components/WelcomeScreen/WelcomeAndroid';
-import WelcomeIos from '../components/WelcomeScreen/WelcomeIos';
+import WelcomeiOS from '../components/WelcomeScreen/WelcomeiOS/WelcomeiOS';
 
 class WelcomeScreen extends Component {
   static navigationOptions = {
@@ -33,7 +33,7 @@ class WelcomeScreen extends Component {
     let { fadeAnim } = this.state;
     const isAndroid = Platform.OS === 'android' ? true : false;
     let renderScreen = (
-      <WelcomeIos
+      <WelcomeiOS
         title="WELCOME TO"
         subTitle="CRYPTO-WATCH"
         animation={{ opacity: fadeAnim }}
@@ -51,19 +51,14 @@ class WelcomeScreen extends Component {
         />
       );
     }
-    return (
-      <View style={styles.container}>
-        {renderScreen}
-      </View>
-    );
+    return renderScreen
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    alignContent: 'center',
-    justifyContent: 'center'
+    alignContent: 'center'
   }
 });
 
