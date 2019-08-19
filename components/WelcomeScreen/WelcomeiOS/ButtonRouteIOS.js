@@ -20,7 +20,7 @@ const ButtonRouteIOS = props => (
 const styles = StyleSheet.create({
     container: {
         height: 50,
-        width: 230,
+        width: 260,
         marginTop: 100,
         padding: 10,
         borderRadius: 150,
