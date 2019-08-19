@@ -21,7 +21,7 @@ const WelcomeiOS = props => (
             <Text style={styles.title}>{props.subTitle}</Text>
             <ButtonRouteIOS
                 navigation={props.navigation}
-                title='Search Currencies Now!'
+                title='Search for Currencies Now!'
                 bgColor={{ backgroundColor: 'white' }}
                 textColor={{ color: 'rgba(98, 124, 244, 1)' }}
                 route='currencyList'
