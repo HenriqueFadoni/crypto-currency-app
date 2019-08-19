@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
   Animated,
   Platform
 } from 'react-native';
@@ -55,12 +52,5 @@ class WelcomeScreen extends Component {
     return renderScreen
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    alignContent: 'center'
-  }
-});
 
 export default WelcomeScreen;

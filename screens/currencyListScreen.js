@@ -1,5 +1,11 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, FlatList, Text, View, TextInput } from 'react-native';
+import {
+    StyleSheet,
+    FlatList,
+    StatusBar,
+    View,
+    TextInput
+} from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -57,6 +63,10 @@ class CurrencyListScreen extends PureComponent {
     render() {
         return (
             < View style={styles.itemContainer} >
+                <StatusBar
+                    backgroundColor="white"
+                    barStyle="dark-content"
+                />
                 <TextInput
                     style={styles.searchInput}
                     placeholder="Search Currency by Name"
@@ -67,7 +77,7 @@ class CurrencyListScreen extends PureComponent {
                     keyExtractor={(item) => item.id.toString()}
                     onRefresh={async () => await this.props.onFetchCurrencies()}
                     refreshing={this.props.loading ? true : false}
-                    contentContainerStyle={{ paddingBottom: 100}}
+                    contentContainerStyle={{ paddingBottom: 100 }}
                     data={
                         this.state.isSeaching ?
                             this.state.searchList :
