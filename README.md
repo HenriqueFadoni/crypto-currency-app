@@ -9,6 +9,7 @@ display the current market data for each cryptocurrency registered.
 - Redux / Redux Thunk
 - Flexbox
 - Expo / Axios
+- Jest / Enzyme
 
 ## How to Run?
 
