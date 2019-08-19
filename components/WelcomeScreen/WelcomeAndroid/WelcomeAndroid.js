@@ -4,6 +4,7 @@ import {
     View,
     Text,
     Animated,
+    StatusBar
 } from 'react-native';
 import PropType from 'prop-types';
 
@@ -11,6 +12,10 @@ import ButtonRouteAndroid from './ButtonRouteAndroid';
 
 const WelcomeAndroid = props => (
     <View style={styles.container}>
+        <StatusBar
+            backgroundColor="blue"
+            barStyle="light-content"
+        />
         <Animated.View style={[styles.titlesContainerAndroid, styles.animation]}>
             <Text style={styles.subTitle}>{props.title}</Text>
             <Text style={styles.title}>{props.subTitle}</Text>
